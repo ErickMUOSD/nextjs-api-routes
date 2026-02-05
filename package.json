@@ -11,8 +11,6 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
-    "@aws-amplify/backend": "^1.20.0",
-    "aws-cdk-lib": "^2.0.0",
     "bootstrap": "^5.3.2",
     "mysql2": "^3.16.3",
     "next": "^13.5.6",

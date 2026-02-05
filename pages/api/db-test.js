@@ -1,5 +1,4 @@
 import { testConnection, initializeFeedbackTable } from '../../lib/db';
-import { defineAuth, secret } from '@aws-amplify/backend';
 
 async function handler(req, res) {
 	if (req.method === 'GET') {
@@ -13,10 +12,10 @@ async function handler(req, res) {
 					message: 'Database connection failed',
 					error: connectionTest.message,
 					envCheck: {
-						hasHost: !!secret("DB_HOST"),
-						hasUser: !!secret("DB_USER"),
-						hasPassword: !!secret("DB_PASSWORD"),
-						hasDatabase: !!secret("DB_NAME")
+						hasHost: !!process.env.DB_HOST,
+						hasUser: !!process.env.DB_USER,
+						hasPassword: !!process.env.DB_PASSWORD,
+						hasDatabase: !!process.env.DB_NAME
 					}
 				});
 			}
