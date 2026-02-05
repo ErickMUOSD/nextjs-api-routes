@@ -1,0 +1,21 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - env | grep -e DB_HOST >> .env.production
+        - env | grep -e DB_USER >> .env.production
+        - env | grep -e DB_PASSWORD >> .env.production
+        - env | grep -e  DB_NAME >> .env.production
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
