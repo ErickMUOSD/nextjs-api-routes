@@ -6,7 +6,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - env | grep -e DB_HOST >> .env.production
+        - env | grep -e DB_HOST > .env.production
         - env | grep -e DB_USER >> .env.production
         - env | grep -e DB_PASSWORD >> .env.production
         - env | grep -e  DB_NAME >> .env.production
